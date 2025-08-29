@@ -1,23 +1,28 @@
+/* import pacifico font */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Goldman:wght@400;700&family=Judson:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@100..900&family=Pacifico&family=Passion+One:wght@400;700;900&family=Quicksand:wght@300..700&family=Rowdies:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Special+Gothic+Expanded+One&display=swap');
+
+/* import judson font */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Goldman:wght@400;700&family=Judson:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@100..900&family=Passion+One:wght@400;700;900&family=Quicksand:wght@300..700&family=Rowdies:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Special+Gothic+Expanded+One&display=swap');
+
+/* import geist font */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Geist:wght@100..900&family=Goldman:wght@400;700&family=Judson:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@100..900&family=Pacifico&family=Passion+One:wght@400;700;900&family=Quicksand:wght@300..700&family=Rowdies:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Special+Gothic+Expanded+One&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* backgorund color */
+  --background: #FFEDED; 
+  /* text-color */
   --foreground: #171717;
+  --navbar-bg-color: #FA9AC0;
+  --landing-bg-color: #FFEDED;
+  --landing-content-intro: #1E1E1E;
+  --landing-heading-bg-color: #FCD7E8;
+  --landing-heading-text-color:#800357;
+  --landing-heading-text-orange:#ED9585;
+  --landing-content-button-color:#EC84B5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
