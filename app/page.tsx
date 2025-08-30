@@ -1,3 +1,4 @@
+import Education from "./components/Education";
 import LandingPage from "./components/LandingPage";
 import Project from "./components/Project";
 
@@ -8,6 +9,7 @@ export default function Home() {
     <div>
 <LandingPage/>
 <Project/>
+<Education/>
     </div>
     
   );

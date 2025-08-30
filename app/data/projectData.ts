@@ -79,5 +79,5 @@ export const getProjectsByCategory = (category: string) => {
 
 // Helper function to get featured projects (first 3)
 export const getFeaturedProjects = () => {
-  return projectsData.slice(0, 3);
+  return projectsData.slice(0, 6);
 };

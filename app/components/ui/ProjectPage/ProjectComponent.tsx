@@ -1,36 +1,59 @@
-'use client';
+"use client"
 
-import React, { useState } from 'react';
-import { Judson } from 'next/font/google';
-import { Geist } from 'next/font/google';
-import { ChevronLeft, ChevronRight, Github, ExternalLink } from 'lucide-react';
-import { getFeaturedProjects, type Project } from '../../../data/projectData';
+import type React from "react"
+import { useState, useEffect } from "react"
+import { Judson } from "next/font/google"
+import { Geist } from "next/font/google"
+import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react"
+import { getFeaturedProjects, type Project } from "../../../data/projectData"
 
-const judson = Judson({ subsets: ['latin'], weight: '700' });
-const geist = Geist({ subsets: ['latin'], weight: '400' });
+const judson = Judson({ subsets: ["latin"], weight: "700" })
+const geist = Geist({ subsets: ["latin"], weight: "400" })
 
 const cardBgColors = [
   "bg-[#FA9AC0]/56", // left & right
-  "bg-[#FDF3C7]",    // center
-];
+  "bg-[#FDF3C7]", // center
+]
 
 const ProjectComponent: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const projects = getFeaturedProjects();
-  const totalSlides = Math.ceil(projects.length / 3);
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [itemsPerSlide, setItemsPerSlide] = useState(3)
+  const projects = getFeaturedProjects()
+
+  useEffect(() => {
+    const computeItemsPer = () => {
+      const w = typeof window !== "undefined" ? window.innerWidth : 1024
+      if (w < 640)
+        setItemsPerSlide(1) // < phone
+      else if (w < 768)
+        setItemsPerSlide(1) // < md
+      else if (w < 1024)
+        setItemsPerSlide(2) // md to < lg
+      else setItemsPerSlide(3) // >= lg
+    }
+    computeItemsPer()
+    window.addEventListener("resize", computeItemsPer)
+    return () => window.removeEventListener("resize", computeItemsPer)
+  }, [])
+
+  const totalSlides = Math.ceil(projects.length / itemsPerSlide)
+
+  useEffect(() => {
+    setCurrentSlide((prev) => Math.min(prev, Math.max(totalSlides - 1, 0)))
+  }, [totalSlides])
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
+    setCurrentSlide((prev) => (prev + 1) % totalSlides)
+  }
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
+  }
 
   const getCurrentProjects = () => {
-    const startIndex = currentSlide * 3;
-    return projects.slice(startIndex, startIndex + 3);
-  };
+    const startIndex = currentSlide * itemsPerSlide
+    return projects.slice(startIndex, startIndex + itemsPerSlide)
+  }
 
   const ProjectCard: React.FC<{ project: Project; idx: number }> = ({ project, idx }) => (
     <div
@@ -42,7 +65,7 @@ const ProjectComponent: React.FC = () => {
       <div className="relative overflow-hidden h-44 md:h-[214px] ">
         {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div> */}
         <img
-          src={project.image}
+          src={project.image || "/placeholder.svg"}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 rounded-sm"
         />
@@ -78,9 +101,7 @@ const ProjectComponent: React.FC = () => {
         >
           {project.title}
         </h3>
-        <p className={`text-xs md:text-[19px] text-black/70 pb-2 ${geist.className}`}>
-          {project.description}
-        </p>
+        <p className={`text-xs md:text-[19px] text-black/70 pb-2 ${geist.className}`}>{project.description}</p>
 
         {/* Technology Tags */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
@@ -98,20 +119,19 @@ const ProjectComponent: React.FC = () => {
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
     <div className="relative w-full max-w-none px-0 md:px-4 lg:px-0">
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-[21px] mb-8 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-6 md:gap-[21px] mb-8 justify-center">
         {getCurrentProjects().map((project, idx) => (
           <ProjectCard key={project.id} project={project} idx={idx} />
         ))}
       </div>
 
       {/* Navigation */}
-      <div className="flex flex-row md:flex-row items-center px-5 md:px-30  justify-between gap-4  
-       my-10  md:my-16 ">
+      <div className="flex flex-row md:flex-row items-center px-5 md:px-30 justify-between gap-4 my-10 md:my-16">
         <div className="flex items-center gap-4">
           {/* Previous Button */}
           <button
@@ -158,12 +178,12 @@ const ProjectComponent: React.FC = () => {
 
         {/* Slide Counter */}
         <div className="text-center font-bold text-base md:text-lg mt-2 md:mt-0">
-          <span className="text-[#891c53]">{String(currentSlide + 1).padStart(2, '0')}</span>
-          <span className="text-[#891c53] opacity-60"> / {String(totalSlides).padStart(2, '0')}</span>
+          <span className="text-[#891c53]">{String(currentSlide + 1).padStart(2, "0")}</span>
+          <span className="text-[#891c53] opacity-60"> / {String(totalSlides).padStart(2, "0")}</span>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectComponent;
+export default ProjectComponent
