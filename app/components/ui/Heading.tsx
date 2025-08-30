@@ -16,19 +16,21 @@ const Heading: React.FC<HeadingProps> = ({
   style = {},
   bgImageSrc,
 }) => (
-  <div className="relative flex justify-center items-center" style={{ width: 439, height: 88 }}>
+  <div className="relative flex justify-center items-center  
+              w-auto    sm:w-[449px]       h-[20px] sm:h-[70px] 
+              " >
     {bgImageSrc && (
-      <img
-        src={bgImageSrc}
-        alt=""
-        width={386}
-        height={100}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none mt-5"
-        style={{ zIndex: 0 }}
-      />
+     <img
+  src={bgImageSrc}
+  alt=""
+  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none  mt-2 sm:mt-6 
+             w-[170px] h-[150px] sm:w-[280px] sm:h-[280px] md:w-[386px] md:h-[350px]"
+  style={{ zIndex: 0 }}
+/>
+
     )}
     <span
-      className={`relative z-10 py-0 font-extrabold text-2xl md:text-[52px] ${pacifico.className} ${className}`}
+      className={`relative z-10 py-0 font-extrabold text-xl md:text-[52px] ${pacifico.className} ${className}`}
       style={{
         background: "var(--landing-heading-bg-color)",
         color: "var(--landing-heading-text-color)",

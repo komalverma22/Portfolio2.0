@@ -14,13 +14,12 @@ const LandingPage = () => {
       <LandingContent />
       <SideImage />
     </LandingContainer>
-    <div
-  style={{
-    background: "var(--navbar-bg-color)", // ya aapka pink color code
-    height: "100px",
-    width: "100%",
-  }}
-/>
+  <div
+  className="w-full bg-[var(--navbar-bg-color)] h-[60px] sm:h-[100px]"
+>
+  {/* content */}
+</div>
+
     </div>
   );
 };

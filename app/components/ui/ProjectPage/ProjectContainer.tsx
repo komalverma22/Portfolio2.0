@@ -4,8 +4,8 @@ import ProjectComponent from '../ProjectPage/ProjectComponent';
 
 const ProjectContainer: React.FC = () => {
   return (
-    <div className="w-full h-[1024px] ">
-      <div className="w-full max-w-none mx-auto px-4 md:px-6 lg:px-[35px] py-8 lg:py-0">
+    <div className="w-full h-auto  ">
+      <div className="w-full max-w-none mx-auto px-4 md:px-6 lg:px-[35px]">
         <ProjectHeading />
         <ProjectComponent />
       </div>
