@@ -1,6 +1,7 @@
 import Education from "./components/Education";
 import LandingPage from "./components/LandingPage";
 import Project from "./components/Project";
+import Skill from "./components/Skill";
 
 
 export default function Home() {
@@ -9,7 +10,9 @@ export default function Home() {
     <div>
 <LandingPage/>
 <Project/>
+<Skill/>
 <Education/>
+
     </div>
     
   );

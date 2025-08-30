@@ -4,7 +4,7 @@ import EducationSections from './ui/EducationPage.tsx/EducationSections'
 
 const Education = () => {
   return (
-    <div className='w-full h-auto  '>
+    <div className='w-full   '>
      <EducationHeading/> 
      <EducationSections/>
     </div>

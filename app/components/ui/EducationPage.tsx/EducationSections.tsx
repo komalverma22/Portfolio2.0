@@ -54,8 +54,8 @@ function EducationCard({ item }: { item: EducationItem }) {
 
 export default function Page() {
   return (
-    <main className="min-h-[60vh]  w-auto  sm:w-[865px] mx-auto h-[142px] items-center">
-      <section className="mx-auto  px-4 py-8 md:py-10">
+    <main className="min-h-auto  w-auto  sm:w-[865px] mx-auto h-[142px] items-center">
+      <section className="mx-auto  px-4 pb-10 md:pb-15">
     
 
         <div className="flex flex-col gap-5  sm:gap-12">
