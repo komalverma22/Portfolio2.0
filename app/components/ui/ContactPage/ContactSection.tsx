@@ -8,12 +8,12 @@ const ContactSection = () => (
   <section className="w-full  px-60">
     <div className="max-w-7xl flex flex-col lg:flex-row items-center justify-center ">
       {/* Left: Heading & Paper Plane */}
-      <div className="flex-1 flex flex-col items-center lg:items-start justify-center mb-10 lg:mb-0">
-        <div className="flex items-center">
+      <div className="flex-1 flex flex-col items-center lg:items-start mb-10 lg:mb-0">
+        <div className="flex items-center relative">
           {/* Paper plane SVG */}
-         <img src="./contact-aero.png" alt="" />
-          <div>
-            <div className={`text-[44px] font-bold text-black leading-none  ${pacifico.className}`} >
+         <img src="./contact-aero.png" alt="" width={477} height={477} className="items-center"/>
+          <div className="absolute">
+            <div className={` text-[44px] font-bold text-black leading-none  ${pacifico.className}`} >
               <span>Get In</span>
             </div>
             <div className={`text-[99px] font-serif font-normal text-white leading-none -mt-4  ${judson.className}`}>
@@ -24,7 +24,8 @@ const ContactSection = () => (
       </div>
 
       {/* Right: Contact Form */}
-      <form className="flex-1 flex flex-col justify-center gap-[10px] ">
+      <div className="flex  h-[562px]">
+      <form className="flex-1 flex flex-col items-center justify-center gap-[10px] ">
         <div>
           <label className={`block text-[28px]  font-bold  text-[#1E1E1E]  ${judson.className}`}>Name</label>
           <input
@@ -44,7 +45,7 @@ const ContactSection = () => (
         <div>
           <label className={`block text-[28px]  font-bold  text-[#1E1E1E]  ${judson.className}`}>Message</label>
           <textarea
-            className="w-[394px] h-[54px] px-4 text-lg rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none"
+            className="w-[394px] h-[110px] px-4 text-lg rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none"
             placeholder="Your Message"
           />
         </div>
@@ -55,6 +56,7 @@ const ContactSection = () => (
           Send Message
         </button>
       </form>
+      </div>
     </div>
   </section>
 );
