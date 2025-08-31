@@ -1,3 +1,4 @@
+import Contact from "./components/Contact";
 import Education from "./components/Education";
 import LandingPage from "./components/LandingPage";
 import Project from "./components/Project";
@@ -12,7 +13,10 @@ export default function Home() {
 <Project/>
 <Skill/>
 <Education/>
-
+<div>
+  
+</div>
+<Contact/>
     </div>
     
   );
