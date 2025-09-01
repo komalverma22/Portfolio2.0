@@ -23,10 +23,8 @@ const ProjectComponent: React.FC = () => {
   useEffect(() => {
     const computeItemsPer = () => {
       const w = typeof window !== "undefined" ? window.innerWidth : 1024
-      if (w < 640)
-        setItemsPerSlide(1) // < phone
-      else if (w < 768)
-        setItemsPerSlide(1) // < md
+      if (w < 768)
+        setItemsPerSlide(1) // < md (phone & small screens)
       else if (w < 1024)
         setItemsPerSlide(2) // md to < lg
       else setItemsPerSlide(3) // >= lg
@@ -52,80 +50,119 @@ const ProjectComponent: React.FC = () => {
 
   const getCurrentProjects = () => {
     const startIndex = currentSlide * itemsPerSlide
-    return projects.slice(startIndex, startIndex + itemsPerSlide)
+    return projects.slice(startIndex, startIndex + itemsPerSlide).map((project, idx) => ({
+      ...project,
+      originalIndex: startIndex + idx // Keep track of original position for color alternation
+    }))
   }
 
-  const ProjectCard: React.FC<{ project: Project; idx: number }> = ({ project, idx }) => (
-    <div
-      className={`w-full h-auto md:w-[439px] md:h-[502px] overflow-hidden transform transition-all duration-300 group px-3 md:px-[12px] py-[12px]  md:py-[12px] shadow-[6px_6px_0px_0px_#670045] ${
-        idx === 1 ? cardBgColors[1] : cardBgColors[0]
-      } mx-auto`}
-    >
-      {/* Project Image */}
-      <div className="relative overflow-hidden h-44 md:h-[214px] ">
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div> */}
-        <img
-          src={project.image || "/placeholder.svg"}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 rounded-sm"
-        />
+  const ProjectCard: React.FC<{ project: Project & { originalIndex?: number }; idx: number }> = ({ project, idx }) => {
+    // For mobile (< 768px), use originalIndex for alternating colors
+    // For desktop, use idx within current slide
+    const getCardColor = () => {
+      if (typeof window !== "undefined" && window.innerWidth < 768) {
+        // Mobile: alternate based on original project index
+        return (project.originalIndex || 0) % 2 === 0 ? cardBgColors[0] : cardBgColors[1]
+      } else {
+        // Desktop: use existing logic (center card gets different color)
+        return idx === 1 ? cardBgColors[1] : cardBgColors[0]
+      }
+    }
 
-        {/* Overlay buttons */}
-        <div className="absolute top-2 right-2 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <a
-            href={project.githubUrl}
-            className="bg-black/70 text-white p-2 rounded-full hover:bg-black transition-colors duration-200"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github size={16} />
-          </a>
-          <a
-            href={project.liveUrl}
-            className="bg-black/70 text-white p-2 rounded-full hover:bg-black transition-colors duration-200"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ExternalLink size={16} />
-          </a>
+    return (
+      <div
+        className={`w-full h-auto md:w-[439px] md:h-[502px] overflow-hidden transform transition-all duration-300 group px-3 md:px-[12px] py-[12px]  md:py-[12px] shadow-[6px_6px_0px_0px_#670045] ${getCardColor()} mx-auto`}
+      >
+        {/* Project Image */}
+        <div className="relative overflow-hidden h-44 md:h-[214px] ">
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div> */}
+          <img
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 rounded-sm"
+          />
+
+          {/* Overlay buttons - Desktop only */}
+          <div className="absolute top-2 right-2 space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex">
+            <a
+              href={project.githubUrl}
+              className="bg-black/70 text-white p-2 rounded-full hover:bg-black transition-colors duration-200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={16} />
+            </a>
+            <a
+              href={project.liveUrl}
+              className="bg-black/70 text-white p-2 rounded-full hover:bg-black transition-colors duration-200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink size={16} />
+            </a>
+          </div>
         </div>
-      </div>
 
-      {/* Project Content */}
-      <div className="">
-        <h3
-          className={`text-xl md:text-[32px] font-bold text-gray-800 py-1 ${judson.className}`}
-          style={{
-            color: "var(--landing-heading-text-color)",
-          }}
-        >
-          {project.title}
-        </h3>
-        <p className={`text-xs md:text-[19px] text-black/70 pb-2 ${geist.className}`}>{project.description}</p>
-
-        {/* Technology Tags */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 ">
-          {project.technologies.slice(0, 10).map((tech, index) => (
-            <div
-              key={index}
-              className="w-full h-[28px] md:w-[96px] md:h-[31px]  flex justify-center items-center text-xs px-2 py-1 text-center font-semibold shadow-[-4px_4px_0px_0px_#670045] border-[2px] border-[var(--landing-heading-text-color)]"
+        {/* Project Content */}
+        <div className="">
+          {/* Mobile: Title with icons side by side */}
+          <div className="flex justify-between items-center md:block">
+            <h3
+              className={`text-xl md:text-[32px] font-bold text-gray-800 py-1 ${judson.className}`}
               style={{
-                background: "var(--background)",
-                color:"var(--landing-heading-text-color)"
+                color: "var(--landing-heading-text-color)",
               }}
             >
-              {tech}
+              {project.title}
+            </h3>
+            
+            {/* Mobile icons - visible only on mobile */}
+            <div className="flex space-x-2 md:hidden">
+              <a
+                href={project.githubUrl}
+                className=" text-[#510237] rounded-full hover:bg-[#670045] transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github size={20} />
+              </a>
+              <a
+                href={project.liveUrl}
+                className=" text-[#510237]  rounded-full hover:bg-[#670045] transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink size={20} />
+              </a>
             </div>
-          ))}
+          </div>
+          
+          <p className={`text-xs md:text-[19px] text-black/70 pb-2 ${geist.className}`}>{project.description}</p>
+
+          {/* Technology Tags */}
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 ">
+            {project.technologies.slice(0, 10).map((tech, index) => (
+              <div
+                key={index}
+                className="w-full h-[28px] md:w-[96px] md:h-[31px]  flex justify-center items-center text-xs px-2 py-1 text-center font-semibold shadow-[-4px_4px_0px_0px_#670045] border-[2px] border-[var(--landing-heading-text-color)]"
+                style={{
+                  background: "var(--background)",
+                  color:"var(--landing-heading-text-color)"
+                }}
+              >
+                {tech}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   return (
     <div className="relative w-full max-w-none px-0 md:px-4 lg:px-0">
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-6 md:gap-[21px] mb-8 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-[21px] mb-8 justify-center">
         {getCurrentProjects().map((project, idx) => (
           <ProjectCard key={project.id} project={project} idx={idx} />
         ))}

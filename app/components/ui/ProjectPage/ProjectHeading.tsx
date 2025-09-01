@@ -27,9 +27,9 @@ const ProjectHeading: React.FC = () => {
       <span className='text-[14px]  sm:text-[26px]'> View All </span> 
         <span>
          <img
-  src="/hire-btn-logo.png"
+  src="/view-more.png"
   alt=""
-  className="w-[14px] h-[14px] sm:w-[22px] sm:h-[22px]"
+  className="w-[14px] h-[14px] sm:w-[22px] sm:h-[22px] "
 />
 
         </span>
