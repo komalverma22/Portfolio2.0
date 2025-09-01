@@ -15,7 +15,7 @@ const LandingPage = () => {
       <SideImage />
     </LandingContainer>
   <div
-  className="w-full bg-[var(--navbar-bg-color)] h-[60px] sm:h-[100px]"
+  className="w-full bg-[var(--navbar-bg-color)] h-[60px] mt-10 sm:h-[100px]"
 >
   {/* content */}
 </div>

@@ -7,7 +7,7 @@ const pacifico = Pacifico({ subsets: ['latin'], weight: '400' });
 const judson = Judson({ subsets: ['latin'], weight: '700' })
 const geist = Geist({ subsets: ['latin'], weight: '500' })
 const LandingContent = () => (
-  <div className="relative flex-10 flex flex-col items-center md:items-start mt-[-40px] md:mt-[-130px]">
+  <div className="relative flex-10 flex flex-col items-center md:items-start mt-[-40px] md:mt-[20px]">
     <div className="px-2 py-6 md:px-0 md:py-0  w-full max-w-2xl">
       <div className="mb-2 flex items-center justify-start md:justify-start">
                <h2 className={`font-bold text-2xl md:text-[37px] flex items-center gap-0  ${pacifico.className}`}

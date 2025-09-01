@@ -104,13 +104,14 @@ const ProjectComponent: React.FC = () => {
         <p className={`text-xs md:text-[19px] text-black/70 pb-2 ${geist.className}`}>{project.description}</p>
 
         {/* Technology Tags */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-          {project.technologies.slice(0, 6).map((tech, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 ">
+          {project.technologies.slice(0, 10).map((tech, index) => (
             <div
               key={index}
-              className="w-full h-[28px] md:w-[96px] md:h-[31px] text-purple-700 text-xs px-2 py-1 text-center font-medium shadow-[-4px_4px_0px_0px_#670045] border-[2px] border-[var(--landing-heading-text-color)]"
+              className="w-full h-[28px] md:w-[96px] md:h-[31px]  flex justify-center items-center text-xs px-2 py-1 text-center font-semibold shadow-[-4px_4px_0px_0px_#670045] border-[2px] border-[var(--landing-heading-text-color)]"
               style={{
                 background: "var(--background)",
+                color:"var(--landing-heading-text-color)"
               }}
             >
               {tech}

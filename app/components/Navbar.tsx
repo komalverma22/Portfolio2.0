@@ -11,7 +11,7 @@ const Navbar = () => {
 
 // ...existing code...
   return (
-    <header className=" relative h-[72px] flex items-center"
+    <header className="fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center"
      style={{ backgroundColor: "var(--navbar-bg-color)" }}>
       <div className="max-w-[1138px] mx-auto flex items-center justify-between w-full">
         {/* Logo with image behind */}
@@ -22,7 +22,7 @@ const Navbar = () => {
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[135.7px] h-[80.84px] opacity-100 pointer-events-none"
             style={{ zIndex: 0 }}
           /> */}
-          <span className={`font-bold text-[24px] relative z-10 px-2 md:px-0 ${judson.className}`}>
+          <span className={`font-bold text-[24px] relative z-10 px-4 md:px-0 ${judson.className}`}>
             Portfolio
           </span>
         </div>
@@ -42,28 +42,38 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white p-4"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-pink-400 md:hidden">
-            <nav className="flex flex-col py-4">
-              {navItems.map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-white hover:text-pink-100 transition-colors duration-200 font-medium px-4 py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-            </nav>
-          </div>
-        )}
+      {isMenuOpen && (
+  <div className="absolute top-full left-0 right-0 md:hidden shadow-lg z-50"
+    style={{
+      background: "var(--background)"
+    }}>
+    <nav className="flex flex-col border border-gray-200 rounded-b-lg overflow-hidden">
+      {navItems.map((item, index) => (
+        <a
+          key={item}
+          href={`#${item.toLowerCase()}`}
+      className={`
+  text-black hover:text-gray-700 hover:bg-gray-50
+  transition-all duration-200 font-medium px-4 py-3
+  border-b-[1px] border-[var(--navbar-bg-color)]/50
+  active:bg-gray-100 focus:outline-none focus:bg-gray-50
+`}
+
+
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {item}
+        </a>
+      ))}
+    </nav>
+  </div>
+)}
       </div>
     </header>
   )

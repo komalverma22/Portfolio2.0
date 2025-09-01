@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const ProfileImage = () => (
-  <div className="relative w-[300px] sm:w-[472.18px] h-[350px]  sm:h-[505px] mr-0 md:mr-8 mb-8 md:mb-0 flex items-center justify-center">
+  <div className="relative w-[300px] sm:w-[472.18px] h-[350px]  sm:h-[505px] mr-0 md:mr-8 mb-8 md:mb-0 flex items-center justify-center mt-22 md:mt-20">
     {/* Brown rectangle */}
     <div
       className="absolute   w-[0px]  sm:w-[759.55px]  h-[0px] sm:h-[739px] ml-253 z-0"
