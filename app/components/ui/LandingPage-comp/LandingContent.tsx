@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { Pacifico } from 'next/font/google';
 import { Judson } from 'next/font/google'
@@ -18,7 +19,7 @@ const LandingContent = () => (
  <img 
   src="/coffee.png" 
   alt="coffee" 
-  className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px]" 
+  className="w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] md:w-[80px] md:h-[80px] animate-bounce-custom" 
 />
 
 </span>
