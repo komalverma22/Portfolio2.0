@@ -1,8 +1,10 @@
 import React from "react";
 import { Pacifico } from 'next/font/google';
 import { Judson } from 'next/font/google'
+import { Geist } from 'next/font/google'
 const pacifico = Pacifico({ subsets: ['latin'], weight: '400' });
 const judson = Judson({ subsets: ['latin'], weight: '700' })
+const geist = Geist({ subsets: ['latin'], weight: '500' })
 const ContactSection = () => (
     
   <section className="w-full  px-1 md:px-60 ">
@@ -13,7 +15,7 @@ const ContactSection = () => (
     <div className={`text-[30px] md:text-[44px] font-bold text-black  ${pacifico.className}`}>
       <span>Get In</span>
     </div>
-    <div className={`text-[50px] md:text-[99px] font-serif font-normal text-white leading-none     -mt-3 md:-mt-12 ${judson.className}`}>
+    <div className={`text-[50px] md:text-[99px] font-serif font-normal text-white leading-none     -mt-6 md:-mt-12 ${judson.className}`}>
       Touch
     </div>
     {/* Plane image */}
@@ -30,7 +32,7 @@ const ContactSection = () => (
           <label className={`block text-[24px] md:text-[28px]  font-bold  text-[#1E1E1E]  ${judson.className}`}>Name</label>
           <input
             type="text"
-            className="w-[310px] md:w-[394px] h-[40px] md:h-[54px] px-4 text-lg rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none"
+            className={`w-[310px] md:w-[394px] h-[40px] md:h-[54px] px-2 text-md rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none ${geist.className}`}
             placeholder="Your Name"
           />
         </div>
@@ -38,20 +40,20 @@ const ContactSection = () => (
           <label className={`block text-[24px] md:text-[28px]  font-bold  text-[#1E1E1E]  ${judson.className}`}>Email</label>
           <input
             type="email"
-            className=" w-[310px] md:w-[394px] h-[40px] md:h-[54px] px-4 text-lg rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none"
+            className={` w-[310px] md:w-[394px] h-[40px] md:h-[54px] px-2 text-md rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none ${geist.className}`}
             placeholder="Your Email"
           />
         </div>
         <div>
-          <label className={`block text-[24px] md:text-[28px]  font-bold  text-[#1E1E1E]  ${judson.className}`}>Message</label>
+          <label className={`block text-[24px] md:text-[28px]  font-bold  text-[#1E1E1E]  ${geist.className}`}>Message</label>
           <textarea
-            className="w-[310px] md:w-[394px] h-[80px] md:h-[110px] px-4 text-lg rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none"
+            className={`w-[310px] md:w-[394px] h-[80px] md:h-[110px] py-2 px-2 text-md rounded-none bg-white shadow-[4px_4px_0px_0px_#800357]  border-[2px] border-[#800357] outline-none ${geist.className}`}
             placeholder="Your Message"
           />
         </div>
         <button
           type="submit"
-          className={` w-[310px] md:w-[394px] h-[45px] md:h-[54px] px-4 bg-[#FFEDED] text-[#2d002b] text-[25px] md:text-[28px] font-bold shadow-[6px_6px_0px_0px_#891c53] mt-2 transition hover:bg-pink-200 ${judson.className} `}
+          className={` w-[310px] md:w-[394px] h-[49px] md:h-[54px] px-4 bg-[#FFEDED] text-[#2d002b] text-[22px] md:text-[28px] font-bold shadow-[6px_6px_0px_0px_#891c53] mt-2 transition hover:bg-pink-200 ${judson.className} `}
         >
           Send Message
         </button>

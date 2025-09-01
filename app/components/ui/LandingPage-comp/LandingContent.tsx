@@ -65,15 +65,22 @@ const LandingContent = () => (
                }>
         I am a skilled and passionate web designer with experience in creating visually appearing and user-friendly websites. I enjoy learning new technologies and building digital products that solve real problems and bring joy to users.
       </p>
-      <button className=" w-[150px] md:w-[230px] h-[40px] md:h-[58px] text-white    px-6 md:px-8 py-3  transition flex items-center  justify-center text-center gap-2 shadow-[5px_5px_0px_rgba(0,0,0,0.25),4px_5px_2px_rgba(236,132,181,0.87)]"
-      style={{
-        background: "var(--landing-content-button-color)"
-      }}>
-      <span className='text-[16px] sm:text-[26px]'> Hire Me </span> 
-        <span>
-          <img src="/hire-btn-logo.png" alt="" width={22} height={22}/>
-        </span>
-      </button>
+     <button 
+  className=" w-[150px] md:w-[230px] h-[40px] md:h-[58px] text-white px-6 md:px-8 py-3  
+  transition transform hover:scale-105 active:scale-95 
+  flex items-center justify-center text-center gap-2 
+  shadow-[5px_5px_0px_rgba(0,0,0,0.25),4px_5px_2px_rgba(236,132,181,0.87)]"
+  style={{
+    background: "var(--landing-content-button-color)"
+  }}
+>
+  <span className='text-[16px] sm:text-[26px]'>
+     Hire Me </span> 
+  <span>
+    <img src="/hire-btn-logo.png" alt="" width={22} height={22}/>
+  </span>
+</button>
+
     </div>
    
   </div>

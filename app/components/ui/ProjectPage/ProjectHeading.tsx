@@ -20,11 +20,12 @@ const ProjectHeading: React.FC = () => {
       </div>
       
       {/* Right side - View More button */}
-         <button className=" w-[100px] sm:w-[230px]  h-[30px] sm:h-[58px] text-white  px-2 sm:px-8  py-1 sm:py-3  transition flex items-center  justify-center text-center gap-1 sm:gap-2 shadow-[5px_5px_0px_rgba(0,0,0,0.25),4px_5px_2px_rgba(236,132,181,0.87)]"
+         <button className="transform hover:scale-105 active:scale-95 transition-all duration-300
+ w-[100px] sm:w-[230px]  h-[30px] sm:h-[58px] text-white  px-2 sm:px-8  py-1 sm:py-3  flex items-center  justify-center text-center gap-1 sm:gap-2 shadow-[5px_5px_0px_rgba(0,0,0,0.25),4px_5px_2px_rgba(236,132,181,0.87)]"
       style={{
         background: "var(--landing-content-button-color)"
       }}>
-      <span className='text-[14px]  sm:text-[26px]'> View All </span> 
+      <span className='text-[14px]   sm:text-[26px]'> View All </span> 
         <span>
          <img
   src="/view-more.png"

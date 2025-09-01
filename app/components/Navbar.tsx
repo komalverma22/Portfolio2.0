@@ -7,7 +7,7 @@ const judson = Judson({ subsets: ['latin'], weight: '400' }) // Add this line
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const navItems = ['Home', 'Projects', 'Skills', 'Blog']
+  const navItems = ['Home', 'Projects', 'Design', 'Blog']
 
 // ...existing code...
   return (
@@ -32,11 +32,12 @@ const Navbar = () => {
           {navItems.map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`${item.toLowerCase()}`}
               className="hover:text-pink-100 text-[21px] transition-colors font-medium duration-300"
             >
               {item}
             </a>
+            
           ))}
         </nav>
         {/* Mobile Menu Button */}
