@@ -5,10 +5,10 @@ const pacifico = Pacifico({ subsets: ['latin'], weight: '400' });
 const judson = Judson({ subsets: ['latin'], weight: '700' })
 const ContactSection = () => (
     
-  <section className="w-full  px-1 md:px-60">
-    <div className="max-w-7xl flex flex-col lg:flex-row items-center justify-center ">
+  <section className="w-full  px-1 md:px-60 ">
+    <div className="max-w-7xl flex flex-col lg:flex-row items-center justify-center h-[500px] ">
       {/* Left: Heading & Paper Plane */}
-     <div className="flex-1 flex flex-col justify-center items-center lg:items-start mt-3 md:mt-3 mb-7 lg:mb-0">
+     <div className="flex-1 flex flex-col justify-center items-center lg:items-start mt-3 md:mt-3 mb-0 lg:mb-0">
   <div className="flex flex-col items-center">
     <div className={`text-[30px] md:text-[44px] font-bold text-black  ${pacifico.className}`}>
       <span>Get In</span>

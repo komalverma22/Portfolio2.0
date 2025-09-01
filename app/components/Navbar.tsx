@@ -22,7 +22,7 @@ const Navbar = () => {
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[135.7px] h-[80.84px] opacity-100 pointer-events-none"
             style={{ zIndex: 0 }}
           /> */}
-          <span className={`font-bold text-[24px] relative z-10 ${judson.className}`}>
+          <span className={`font-bold text-[24px] relative z-10 px-2 md:px-0 ${judson.className}`}>
             Portfolio
           </span>
         </div>

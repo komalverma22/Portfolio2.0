@@ -1,5 +1,6 @@
 import Contact from "./components/Contact";
 import Education from "./components/Education";
+import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
 import Project from "./components/Project";
 import Skill from "./components/Skill";
@@ -13,10 +14,8 @@ export default function Home() {
 <Project/>
 <Skill/>
 <Education/>
-<div>
-  
-</div>
 <Contact/>
+<Footer/>
     </div>
     
   );
