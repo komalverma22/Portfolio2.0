@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
-
+// 
     const { name, email, message } = parsed.data;
 
     await prisma.contactMessage.create({
