@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { PrismaClient } from "@/generated/prisma"; 
+import { PrismaClient } from "@/lib/generated/prisma"; 
 
 const prisma = new PrismaClient();
 
