@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React from 'react';
 import { Pacifico } from 'next/font/google';
 import { Judson } from 'next/font/google'
@@ -74,8 +75,16 @@ const LandingContent = () => (
     background: "var(--landing-content-button-color)"
   }}
 >
-  <span className='text-[16px] sm:text-[26px]'>
-     Hire Me </span> 
+  <Link 
+  href="https://drive.google.com/file/d/1W0Oj9WsndeUSaU1Z4lpMBpkwM70xYL0U/view?usp=sharing" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <span className='text-[16px] sm:text-[26px] font-semibold  cursor-pointer'>
+    Hire Me
+  </span>
+</Link>
+
   <span>
     <img src="/hire-btn-logo.png" alt="" width={22} height={22}/>
   </span>
