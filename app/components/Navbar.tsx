@@ -20,23 +20,24 @@ const Navbar = () => {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center"
+    <div className="fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center shadow-2xs"
      style={{ backgroundColor: "var(--navbar-bg-color)" }}>
-      <div className="max-w-[1138px] mx-auto flex items-center justify-between w-full">
+      <div className="max-w-[1138px] mx-auto flex items-center justify-between w-full ">
         {/* Logo with image behind */}
         <div className="relative flex items-center justify-center mr-8">
-          <span className={`font-bold text-[24px] relative z-10 px-4 md:px-0 ${judson.className}`}>
+          <span className={`font-bold text-[28px] relative z-10 px-4 md:px-0 ${judson.className}`}>
             Portfolio
           </span>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-[37px]">
+        <nav className="hidden md:flex space-x-[37px] ">
           {navItems.map((item) => (
             <a
               key={item}
               href={getNavHref(item)}
               className="hover:text-pink-100 text-[21px] transition-colors font-medium duration-300"
+              
             >
               {item}
             </a>
@@ -77,7 +78,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </header>
+    </div>
   )
 }
 
