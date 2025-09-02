@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { PrismaClient } from "@/generated/prisma"; // यह correct है
+import { PrismaClient } from "@/generated/prisma"; 
 
 const prisma = new PrismaClient();
 
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
     const { name, email, message } = parsed.data;
 
-    await prisma.contactMessage.create({
+    await prisma.user.create({
       data: { name, email, message },
     });
 
@@ -49,7 +49,7 @@ export async function POST(req: Request) {
 
 export async function GET() {
   try {
-    const latest = await prisma.contactMessage.findMany({
+    const latest = await prisma.user.findMany({
       orderBy: { sendMessageAt: "desc" }, // यह correct है
       take: 20,
     });

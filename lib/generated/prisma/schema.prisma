@@ -14,7 +14,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model ContactMessage {
+model User {
   id            Int      @id @default(autoincrement())
   email         String 
   name          String?
