@@ -16,7 +16,7 @@ datasource db {
 
 model ContactMessage {
   id      Int      @id @default(autoincrement())
-  email   String   @unique
+  email   String 
   name    String?
   message String
   sendMessageAt DateTime @default(now())
