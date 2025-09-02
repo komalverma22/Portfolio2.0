@@ -21,7 +21,8 @@ const FooterSection = () => {
              </div>
       </div>
       <div>
-{/* <FloatingDock/> */}
+{/* logo */}
+
       </div>
 
     </div>
