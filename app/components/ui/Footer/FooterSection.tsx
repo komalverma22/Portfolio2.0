@@ -42,7 +42,7 @@ const FooterSection = () => {
             className={`flex flex-col space-y-[-2px] md:space-y-[-8px] text-[25px] md:text-[40px] ${judsonn.className}`}
           >
             <Link href="/">Home</Link>
-            <Link href="/project">Project</Link>
+            <Link href="/projects">Project</Link>
             <Link href="/design">Design</Link>
             <Link href="/blog">Blog</Link>
           </div>
