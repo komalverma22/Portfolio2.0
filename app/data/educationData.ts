@@ -11,15 +11,15 @@ export const education: EducationItem[] = [
   {
     id: "btech",
     title: "Bachelor of Technology - Computer",
-    institute: "Abc Institute of Science and Technology",
+    institute: "DCRUST, Murthal",
     period: "2023–Present",
-    highlight: "8.3 cgpa",
+    highlight: "8.4 cgpa",
     tone: "rose",
   },
   {
     id: "xii",
     title: "Senior Secondary (XII) - Science",
-    institute: "Abc School",
+    institute: "MLP School",
     period: "2021–2023",
     highlight: "93%",
     tone: "amber",

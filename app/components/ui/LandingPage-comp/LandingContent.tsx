@@ -15,7 +15,7 @@ const LandingContent = () => (
                style={
                 {color: "var(--landing-content-intro)"}
                }>
-         Hey I’m Coffee 
+         Hey I’m Komal 
       <span>
  <img 
   src="/coffee.png" 
