@@ -53,7 +53,7 @@ const LandingContent = () => (
             <span style={{
                 color:"var(--landing-heading-text-orange)"
             }}>
-                Developer 
+                Designer 
         </span>
         </span>
       </div>
