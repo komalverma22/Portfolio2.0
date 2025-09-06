@@ -32,7 +32,6 @@ export async function POST(req: Request) {
   } catch (err: any) {
     console.error(err);
     
-    // Handle unique constraint error
     if (err.code === 'P2002') {
       return NextResponse.json(
         { ok: false, error: "Email already exists" }, 

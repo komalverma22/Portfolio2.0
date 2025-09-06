@@ -102,7 +102,7 @@ const ContactSection = () => {
             </div>
             <div>
               <label
-                className={`block text-[24px] md:text-[28px] font-bold text-[#1E1E1E] ${geist.className}`}
+                className={`block text-[24px] md:text-[28px] font-bold text-[#1E1E1E] ${judson.className}`}
               >
                 Message
               </label>
